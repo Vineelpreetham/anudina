@@ -21,19 +21,41 @@ document.addEventListener("DOMContentLoaded", () => {
   footerNav.className = "app-nav-bar";
   footerNav.innerHTML = `
     <a href="${pathPrefix}index.html" class="app-nav-item" id="nav-home">
-      <span class="app-nav-icon">🏠</span>
+      <span class="app-nav-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+          <path d="M7.5 17.5V12.5L12 8L16.5 12.5V17.5" />
+          <path d="M16.5 17.5H12C10.5 17.5 10 16.5 10 15C10 14 11 14 12 14C13 14 13.5 15 13.5 17.5V19" />
+        </svg>
+      </span>
       <span class="app-nav-label">Home</span>
     </a>
     <a href="${pathPrefix}old-testament.html" class="app-nav-item" id="nav-old">
-      <span class="app-nav-icon">📜</span>
+      <span class="app-nav-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+          <path d="M7 6v12" />
+          <path d="M17 6v12" />
+          <path d="M7 6c0-1.1 2.2-2 5-2s5 .9 5 2-2.2 2-5 2-5-.9-5-2Z" />
+          <path d="M7 18c0-1.1 2.2-2 5-2s5 .9 5 2-2.2 2-5 2-5-.9-5-2Z" />
+        </svg>
+      </span>
       <span class="app-nav-label">Old</span>
     </a>
     <a href="${pathPrefix}new-testament.html" class="app-nav-item" id="nav-new">
-      <span class="app-nav-icon">✝</span>
+      <span class="app-nav-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+          <line x1="12" y1="4" x2="12" y2="20" />
+          <line x1="7" y1="9" x2="17" y2="9" />
+        </svg>
+      </span>
       <span class="app-nav-label">New</span>
     </a>
     <button class="app-nav-item" id="nav-search">
-      <span class="app-nav-icon">🔍</span>
+      <span class="app-nav-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: block; margin: 0 auto;">
+          <circle cx="11" cy="11" r="6" />
+          <line x1="16" y1="16" x2="21" y2="21" />
+        </svg>
+      </span>
       <span class="app-nav-label">Search</span>
     </button>
   `;
@@ -224,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 6. SCROLL REVEAL ANIMATION (Intersection Observer with staggering)
-  const cards = document.querySelectorAll(".hcard, .pcard, .video-card");
+  const cards = document.querySelectorAll(".hcard, .pcard, .video-card, .glass-card, .book-item-card");
   
   cards.forEach(card => {
     card.classList.add("reveal-item");

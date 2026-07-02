@@ -24,11 +24,10 @@
       <div class="video-grid">
     <div class="video-card">
       <div class="video-card-thumb" style="background: linear-gradient(135deg, #FF6B6B44, #FF6B6B1a)">
-        🌍
       </div>
-      <div class="video-card-sessions">Overview</div>
+      <div class="video-card-sessions">Overview Part 1</div>
       <div class="video-card-title">Genesis 1–11</div>
-      <div class="video-card-sub">Genesis</div>
+      <div class="video-card-sub">Creation, Fall, and Tower of Babel</div>
       <div class="video-card-instructor">Dr. Tim Mackie</div>
       <div class="video-card-duration-pill">
         <span class="video-card-duration-icon">▶</span>
@@ -37,303 +36,32 @@
     </div>
     <div class="video-card">
       <div class="video-card-thumb" style="background: linear-gradient(135deg, #FF6B6B44, #FF6B6B1a)">
-        🌍
       </div>
-      <div class="video-card-sessions">Overview</div>
-      <div class="video-card-title">Genesis 1–11</div>
-      <div class="video-card-sub">Genesis</div>
+      <div class="video-card-sessions">Overview Part 2</div>
+      <div class="video-card-title">Genesis 12–50</div>
+      <div class="video-card-sub">Abraham, Isaac, Jacob, and Joseph</div>
       <div class="video-card-instructor">Dr. Tim Mackie</div>
       <div class="video-card-duration-pill">
         <span class="video-card-duration-icon">▶</span>
-        <span>7 min</span>
+        <span>8 min</span>
       </div>
     </div>
     <div class="video-card">
       <div class="video-card-thumb" style="background: linear-gradient(135deg, #FF6B6B44, #FF6B6B1a)">
-        🌍
       </div>
-      <div class="video-card-sessions">Overview</div>
-      <div class="video-card-title">Genesis 1–11</div>
-      <div class="video-card-sub">Genesis</div>
+      <div class="video-card-sessions">Theme Video</div>
+      <div class="video-card-title">The Covenants</div>
+      <div class="video-card-sub">God's promises to humanity</div>
       <div class="video-card-instructor">Dr. Tim Mackie</div>
       <div class="video-card-duration-pill">
         <span class="video-card-duration-icon">▶</span>
-        <span>7 min</span>
+        <span>5 min</span>
       </div>
     </div>
     </div>
     </div>
   
   </div>
-  <!-- START_BIBLE_PROJECT_SCRIPT -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root");
-  if (!root) return;
-
-  // 1. DETERMINE PATH PREFIX (relative to root directory)
-  const pathPrefix = "./";
-
-  // 2. CREATE SCROLL INDICATOR
-  if (!document.querySelector(".scroll-indicator")) {
-    const scrollDiv = document.createElement("div");
-    scrollDiv.className = "scroll-indicator";
-    scrollDiv.innerHTML = `
-      <div class="scroll-text">Scroll</div>
-      <div class="scroll-line"></div>
-    `;
-    root.appendChild(scrollDiv);
-  }
-
-  // 3. CREATE STICKY NAVIGATION FOOTER
-  const footerNav = document.createElement("div");
-  footerNav.className = "app-nav-bar";
-  footerNav.innerHTML = `
-    <a href="${pathPrefix}index.html" class="app-nav-item" id="nav-home">
-      <span class="app-nav-icon">🏠</span>
-      <span class="app-nav-label">Home</span>
-    </a>
-    <a href="${pathPrefix}old-testament.html" class="app-nav-item" id="nav-old">
-      <span class="app-nav-icon">📜</span>
-      <span class="app-nav-label">Old</span>
-    </a>
-    <a href="${pathPrefix}new-testament.html" class="app-nav-item" id="nav-new">
-      <span class="app-nav-icon">✝</span>
-      <span class="app-nav-label">New</span>
-    </a>
-    <button class="app-nav-item" id="nav-search">
-      <span class="app-nav-icon">🔍</span>
-      <span class="app-nav-label">Search</span>
-    </button>
-  `;
-  root.appendChild(footerNav);
-
-  // 4. HIGHLIGHT ACTIVE NAV ITEM
-  const currentPath = window.location.pathname;
-  const currentFilename = currentPath.substring(currentPath.lastIndexOf("/") + 1);
-
-  const homeItem = document.getElementById("nav-home");
-  const oldItem = document.getElementById("nav-old");
-  const newItem = document.getElementById("nav-new");
-
-  const oldTestamentBooks = [
-    "genesis.html", "exodus.html", "leviticus.html", "numbers.html", "deuteronomy.html", "joshua.html", "judges.html", "ruth.html", "1samuel.html", "2samuel.html", "1kings.html", "2kings.html", "1chronicles.html", "2chronicles.html", "ezra.html", "nehemiah.html", "esther.html", "job.html", "psalms.html", "proverbs.html", "ecclesiastes.html", "songofsolomon.html", "isaiah.html", "jeremiah.html", "lamentations.html", "ezekiel.html", "daniel.html", "hosea.html", "joel.html", "amos.html", "obadiah.html", "jonah.html", "micah.html", "nahum.html", "habakkuk.html", "zephaniah.html", "haggai.html", "zechariah.html", "malachi.html"
-  ];
-
-  const newTestamentBooks = [
-    "matthew.html", "mark.html", "luke.html", "john.html", "acts.html", "romans.html", "1corinthians.html", "2corinthians.html", "galatians.html", "ephesians.html", "philippians.html", "colossians.html", "1thessalonians.html", "2thessalonians.html", "1timothy.html", "2timothy.html", "titus.html", "philemon.html", "hebrews.html", "james.html", "1peter.html", "2peter.html", "1john.html", "2john.html", "3john.html", "jude.html", "revelation.html"
-  ];
-
-  if (currentFilename === "" || currentFilename === "index.html") {
-    homeItem.classList.add("active");
-  } else if (currentFilename === "old-testament.html" || oldTestamentBooks.includes(currentFilename)) {
-    oldItem.classList.add("active");
-  } else if (currentFilename === "new-testament.html" || newTestamentBooks.includes(currentFilename)) {
-    newItem.classList.add("active");
-  }
-
-  // 5. SEARCH OVERLAY IMPLEMENTATION
-  const books = [
-    { name: "Genesis", telugu: "ఆదికాండము", emoji: "🌍", testament: "Old Testament", link: `${pathPrefix}genesis.html` },
-    { name: "Exodus", telugu: "నిర్గమకాండము", emoji: "🔥", testament: "Old Testament", link: `${pathPrefix}exodus.html` },
-    { name: "Leviticus", telugu: "లేవీయకాండము", emoji: "📜", testament: "Old Testament", link: `${pathPrefix}leviticus.html` },
-    { name: "Numbers", telugu: "సంఖ్యాకాండము", emoji: "🏕️", testament: "Old Testament", link: `${pathPrefix}numbers.html` },
-    { name: "Deuteronomy", telugu: "ద్వితీయోపదేశకాండము", emoji: "⛰️", testament: "Old Testament", link: `${pathPrefix}deuteronomy.html` },
-    { name: "Joshua", telugu: "యెహోషువ", emoji: "⚔️", testament: "Old Testament", link: `${pathPrefix}joshua.html` },
-    { name: "Judges", telugu: "న్యాయాధిపతులు", emoji: "🗡️", testament: "Old Testament", link: `${pathPrefix}judges.html` },
-    { name: "Ruth", telugu: "రూతు", emoji: "🌾", testament: "Old Testament", link: `${pathPrefix}ruth.html` },
-    { name: "1 Samuel", telugu: "1 సమూయేలు", emoji: "👑", testament: "Old Testament", link: `${pathPrefix}1samuel.html` },
-    { name: "2 Samuel", telugu: "2 సమూయేలు", emoji: "🎶", testament: "Old Testament", link: `${pathPrefix}2samuel.html` },
-    { name: "1 Kings", telugu: "1 రాజులు", emoji: "🏛️", testament: "Old Testament", link: `${pathPrefix}1kings.html` },
-    { name: "2 Kings", telugu: "2 రాజులు", emoji: "📉", testament: "Old Testament", link: `${pathPrefix}2kings.html` },
-    { name: "1 Chronicles", telugu: "1 దినవృత్తాంతములు", emoji: "📋", testament: "Old Testament", link: `${pathPrefix}1chronicles.html` },
-    { name: "2 Chronicles", telugu: "2 దినవృత్తాంతములు", emoji: "🏰", testament: "Old Testament", link: `${pathPrefix}2chronicles.html` },
-    { name: "Ezra", telugu: "ఎజ్రా", emoji: "🏗️", testament: "Old Testament", link: `${pathPrefix}ezra.html` },
-    { name: "Nehemiah", telugu: "నెహెమ్యా", emoji: "🧱", testament: "Old Testament", link: `${pathPrefix}nehemiah.html` },
-    { name: "Esther", telugu: "ఎస్తేరు", emoji: "👑", testament: "Old Testament", link: `${pathPrefix}esther.html` },
-    { name: "Job", telugu: "యోబు", emoji: "🌪️", testament: "Old Testament", link: `${pathPrefix}job.html` },
-    { name: "Psalms", telugu: "కీర్తనలు", emoji: "🎵", testament: "Old Testament", link: `${pathPrefix}psalms.html` },
-    { name: "Proverbs", telugu: "సామెతలు", emoji: "💡", testament: "Old Testament", link: `${pathPrefix}proverbs.html` },
-    { name: "Ecclesiastes", telugu: "ప్రసంగి", emoji: "⏳", testament: "Old Testament", link: `${pathPrefix}ecclesiastes.html` },
-    { name: "Song of Solomon", telugu: "పరమగీతం", emoji: "🌹", testament: "Old Testament", link: `${pathPrefix}songofsolomon.html` },
-    { name: "Isaiah", telugu: "యెషయా", emoji: "🕊️", testament: "Old Testament", link: `${pathPrefix}isaiah.html` },
-    { name: "Jeremiah", telugu: "యిర్మీయా", emoji: "😢", testament: "Old Testament", link: `${pathPrefix}jeremiah.html` },
-    { name: "Lamentations", telugu: "విలాపవాక్యములు", emoji: "💔", testament: "Old Testament", link: `${pathPrefix}lamentations.html` },
-    { name: "Ezekiel", telugu: "యెహెజ్కేలు", emoji: "👁️", testament: "Old Testament", link: `${pathPrefix}ezekiel.html` },
-    { name: "Daniel", telugu: "దానియేలు", emoji: "🦁", testament: "Old Testament", link: `${pathPrefix}daniel.html` },
-    { name: "Hosea", telugu: "హోషేయ", emoji: "💔", testament: "Old Testament", link: `${pathPrefix}hosea.html` },
-    { name: "Joel", telugu: "యోవేలు", emoji: "🦗", testament: "Old Testament", link: `${pathPrefix}joel.html` },
-    { name: "Amos", telugu: "ఆమోసు", emoji: "⚖️", testament: "Old Testament", link: `${pathPrefix}amos.html` },
-    { name: "Obadiah", telugu: "ఓబద్యా", emoji: "🦅", testament: "Old Testament", link: `${pathPrefix}obadiah.html` },
-    { name: "Jonah", telugu: "యోనా", emoji: "🐳", testament: "Old Testament", link: `${pathPrefix}jonah.html` },
-    { name: "Micah", telugu: "మీకా", emoji: "📣", testament: "Old Testament", link: `${pathPrefix}micah.html` },
-    { name: "Nahum", telugu: "నహూమ", emoji: "🌊", testament: "Old Testament", link: `${pathPrefix}nahum.html` },
-    { name: "Habakkuk", telugu: "హబక్కూకు", emoji: "❓", testament: "Old Testament", link: `${pathPrefix}habakkuk.html` },
-    { name: "Zephaniah", telugu: "సెఫన్యా", emoji: "🧹", testament: "Old Testament", link: `${pathPrefix}zephaniah.html` },
-    { name: "Haggai", telugu: "హగ్గయి", emoji: "🏛️", testament: "Old Testament", link: `${pathPrefix}haggai.html` },
-    { name: "Zechariah", telugu: "జెకర్యా", emoji: "🌌", testament: "Old Testament", link: `${pathPrefix}zechariah.html` },
-    { name: "Malachi", telugu: "మలాకీ", emoji: "🔥", testament: "Old Testament", link: `${pathPrefix}malachi.html` },
-    { name: "Matthew", telugu: "మత్తయి", emoji: "⭐", testament: "New Testament", link: `${pathPrefix}matthew.html` },
-    { name: "Mark", telugu: "మార్కు", emoji: "⚡", testament: "New Testament", link: `${pathPrefix}mark.html` },
-    { name: "Luke", telugu: "లూకా", emoji: "🌟", testament: "New Testament", link: `${pathPrefix}luke.html` },
-    { name: "John", telugu: "యోహాను", emoji: "💫", testament: "New Testament", link: `${pathPrefix}john.html` },
-    { name: "Acts", telugu: "అపొస్తలుల కార్యములు", emoji: "🔥", testament: "New Testament", link: `${pathPrefix}acts.html` },
-    { name: "Romans", telugu: "రోమీయులకు", emoji: "✝️", testament: "New Testament", link: `${pathPrefix}romans.html` },
-    { name: "1 Corinthians", telugu: "1 కొరింథీయులకు", emoji: "🤝", testament: "New Testament", link: `${pathPrefix}1corinthians.html` },
-    { name: "2 Corinthians", telugu: "2 కొరింథీయులకు", emoji: "💪", testament: "New Testament", link: `${pathPrefix}2corinthians.html` },
-    { name: "Galatians", telugu: "గలతీయులకు", emoji: "🕊️", testament: "New Testament", link: `${pathPrefix}galatians.html` },
-    { name: "Ephesians", telugu: "ఎఫెసీయులకు", emoji: "🏰", testament: "New Testament", link: `${pathPrefix}ephesians.html` },
-    { name: "Philippians", telugu: "ఫిలిప్పీయులకు", emoji: "😊", testament: "New Testament", link: `${pathPrefix}philippians.html` },
-    { name: "Colossians", telugu: "కొలొస్సయులకు", emoji: "🌌", testament: "New Testament", link: `${pathPrefix}colossians.html` },
-    { name: "1 Thessalonians", telugu: "1 థెస్సలొనీకయులకు", emoji: "🎺", testament: "New Testament", link: `${pathPrefix}1thessalonians.html` },
-    { name: "2 Thessalonians", telugu: "2 థెస్సలొనీకయులకు", emoji: "⚖️", testament: "New Testament", link: `${pathPrefix}2thessalonians.html` },
-    { name: "1 Timothy", telugu: "1 తిమోతికి", emoji: "🛡️", testament: "New Testament", link: `${pathPrefix}1timothy.html` },
-    { name: "2 Timothy", telugu: "2 తిమోతికి", emoji: "📦", testament: "New Testament", link: `${pathPrefix}2timothy.html` },
-    { name: "Titus", telugu: "తీతుకు", emoji: "📋", testament: "New Testament", link: `${pathPrefix}titus.html` },
-    { name: "Philemon", telugu: "ఫిలేమోనుకు", emoji: "🤝", testament: "New Testament", link: `${pathPrefix}philemon.html` },
-    { name: "Hebrews", telugu: "హెబ్రీయులకు", emoji: "⚓", testament: "New Testament", link: `${pathPrefix}hebrews.html` },
-    { name: "James", telugu: "యాకోబు", emoji: "🙌", testament: "New Testament", link: `${pathPrefix}james.html` },
-    { name: "1 Peter", telugu: "1 పేతురు", emoji: "🛡️", testament: "New Testament", link: `${pathPrefix}1peter.html` },
-    { name: "2 Peter", telugu: "2 పేతురు", emoji: "⚠️", testament: "New Testament", link: `${pathPrefix}2peter.html` },
-    { name: "1 John", telugu: "1 యోహాను", emoji: "❤️", testament: "New Testament", link: `${pathPrefix}1john.html` },
-    { name: "2 John", telugu: "2 యోహాను", emoji: "🚪", testament: "New Testament", link: `${pathPrefix}2john.html` },
-    { name: "3 John", telugu: "3 యోహాను", emoji: "👋", testament: "New Testament", link: `${pathPrefix}3john.html` },
-    { name: "Jude", telugu: "యూదా", emoji: "🛡️", testament: "New Testament", link: `${pathPrefix}jude.html` },
-    { name: "Revelation", telugu: "ప్రకటన", emoji: "🐑", testament: "New Testament", link: `${pathPrefix}revelation.html` }
-  ];
-
-  // Create search overlay HTML
-  const searchOverlay = document.createElement("div");
-  searchOverlay.className = "search-overlay";
-  searchOverlay.id = "search-overlay";
-  searchOverlay.innerHTML = `
-    <div class="search-header">
-      <div class="search-title">Search Books</div>
-      <button class="search-close" id="search-close">✕</button>
-    </div>
-    <div class="search-input-wrapper">
-      <span class="search-input-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Type a book name (e.g. Genesis 1, Exodus 1)..." autocomplete="off">
-    </div>
-    <div class="search-results" id="search-results"></div>
-  `;
-  root.appendChild(searchOverlay);
-
-  const searchBtn = document.getElementById("nav-search");
-  const searchCloseBtn = document.getElementById("search-close");
-  const searchInput = document.getElementById("search-input");
-  const searchResults = document.getElementById("search-results");
-
-  // Show search overlay
-  function showSearch() {
-    searchOverlay.classList.add("active");
-    root.style.overflowY = "hidden";
-    setTimeout(() => {
-      searchInput.focus();
-    }, 50);
-  }
-
-  // Hide search overlay
-  function hideSearch() {
-    searchOverlay.classList.remove("active");
-    root.style.overflowY = "auto";
-    searchInput.value = "";
-    searchResults.innerHTML = "";
-  }
-
-  searchBtn.addEventListener("click", showSearch);
-  searchCloseBtn.addEventListener("click", hideSearch);
-
-  // Close search on escape key press
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
-      hideSearch();
-    }
-  });
-
-  // Perform filtering/search
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim().toLowerCase();
-    searchResults.innerHTML = "";
-
-    if (query === "") {
-      return;
-    }
-
-    const matchedBooks = books.filter(book => book.name.toLowerCase().includes(query) || (book.telugu && book.telugu.includes(query)));
-
-    if (matchedBooks.length === 0) {
-      searchResults.innerHTML = `<div class="search-no-results">No books found matching "${searchInput.value}"</div>`;
-      return;
-    }
-
-    matchedBooks.forEach(book => {
-      const matchIndex = book.name.toLowerCase().indexOf(query);
-      let displayName = book.name;
-      if (matchIndex !== -1) {
-        const prefix = book.name.substring(0, matchIndex);
-        const matchText = book.name.substring(matchIndex, matchIndex + query.length);
-        const suffix = book.name.substring(matchIndex + query.length);
-        displayName = `${prefix}<span style="color: #a38023; font-weight: 800;">${matchText}</span>${suffix}`;
-      }
-
-      const item = document.createElement("a");
-      item.href = book.link;
-      item.className = "search-result-item";
-      item.innerHTML = `
-        <div class="search-result-emoji">${book.emoji}</div>
-        <div class="search-result-info">
-          <div class="search-result-name">${displayName}</div>
-          <div class="search-result-testament">${book.testament}</div>
-        </div>
-        <div class="search-result-arrow">→</div>
-      `;
-      searchResults.appendChild(item);
-    });
-  });
-
-  // 6. SCROLL REVEAL ANIMATION (Intersection Observer with staggering)
-  const cards = document.querySelectorAll(".hcard, .pcard, .video-card");
-  
-  cards.forEach(card => {
-    card.classList.add("reveal-item");
-  });
-
-  const observerRoot = window.innerWidth >= 480 ? root : null;
-
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    const intersectingEntries = entries.filter(entry => entry.isIntersecting);
-    
-    if (intersectingEntries.length > 0) {
-      intersectingEntries.sort((a, b) => {
-        return a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top;
-      });
-
-      intersectingEntries.forEach((entry, idx) => {
-        const card = entry.target;
-        card.style.transitionDelay = `${idx * 75}ms`;
-        card.classList.add("revealed");
-        
-        card.addEventListener("transitionend", function handler() {
-          card.style.transitionDelay = "";
-          card.removeEventListener("transitionend", handler);
-        });
-        
-        observer.unobserve(card);
-      });
-    }
-  }, {
-    root: observerRoot,
-    threshold: 0.04,
-    rootMargin: "0px 0px -20px 0px"
-  });
-
-  cards.forEach(card => {
-    revealObserver.observe(card);
-  });
-});
-
-</script>
-<!-- END_BIBLE_PROJECT_SCRIPT -->
+  <script src="./script.js" defer></script>
 </body>
 </html>
