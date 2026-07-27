@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8791)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8791/index.html)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(node -e \"require\\('playwright'\\)\")"
+    ]
+  }
+}

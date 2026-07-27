@@ -4,32 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>అనుదిన జీవాహారం — Daily Bread for the Soul</title>
-  <link rel="stylesheet" href="./style.css?v=24">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=315">
 </head>
 <body>
   <div id="root">
     
     <div class="hero">
       <!-- Video Background -->
-      <video class="hero-video-bg" autoplay loop muted playsinline crossorigin="anonymous">
-        <source src="https://res.cloudinary.com/dbeh0eisn/video/upload/v1782990724/hero_video_k87amd.mp4" type="video/mp4">
+      <video class="hero-video-bg" autoplay loop muted playsinline crossorigin="anonymous" preload="auto">
+        <source src="https://res.cloudinary.com/dbeh0eisn/video/upload/q_auto,f_auto,w_800/v1782990724/hero_video_k87amd.mp4" type="video/mp4">
       </video>
       <div class="hero-video-overlay"></div>
     </div>
 
     <div class="testament-section">
-      <div class="covenant-heading">
-        <p class="covenant-heading-eyebrow">THE SACRED WORD · పరిశుద్ధ గ్రంథము</p>
-        <h2 class="covenant-heading-title">Two Covenants,<br>One Story</h2>
-        <p class="covenant-heading-telugu">రెండు నిబంధనలు, ఒకే కథ</p>
-        <div class="covenant-heading-rule"></div>
-      </div>
-
       <div class="covenant-cards">
 
         <!-- OLD TESTAMENT -->
         <a class="covenant-card" id="card1" href="./old-testament.html">
-          <img class="covenant-card-img" src="./moses.png" alt="Old Testament">
+          <img class="covenant-card-img" src="./old_testament_bg.png" alt="Old Testament">
           <div class="covenant-card-overlay"></div>
           <div class="covenant-card-body">
             <span class="covenant-card-label">పాత నిబంధన</span>
@@ -44,7 +40,7 @@
 
         <!-- NEW TESTAMENT -->
         <a class="covenant-card" id="card2" href="./new-testament.html">
-          <img class="covenant-card-img" src="./jesus.png" alt="New Testament">
+          <img class="covenant-card-img" src="./new_testament_bg.png" alt="New Testament">
           <div class="covenant-card-overlay"></div>
           <div class="covenant-card-body">
             <span class="covenant-card-label">కొత్త నిబంధన</span>
@@ -60,29 +56,9 @@
       </div>
     </div>
 
-    <!-- FOOTER SECTION -->
-    <div class="page-footer-section">
-      <div class="footer-scroll-icon" style="display: flex; justify-content: center; margin-bottom: 12px;">
-        <!-- Parchment Scroll SVG Icon -->
-        <svg viewBox="0 0 24 24" width="34" height="34" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-accent-green); opacity: 0.85;">
-          <path d="M7.5 18a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
-          <path d="M2.5 18V6a2.5 2.5 0 1 1 5 0"></path>
-          <path d="M21.5 6a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
-          <path d="M21.5 6v12a2.5 2.5 0 1 1-5 0"></path>
-          <path d="M5 6.5h11.5"></path>
-          <path d="M7.5 17.5H19"></path>
-        </svg>
-      </div>
-      <h4 class="footer-title">Sacred Scroll</h4>
-      <p class="footer-subtitle">Explore the Word of God through curated video playlists</p>
-      <div class="footer-links">
-        <a href="./old-testament.html">Old Testament</a>
-        <a href="./new-testament.html">New Testament</a>
-        <a href="./psalms.html">Psalms</a>
-      </div>
-    </div>
+
   
   </div>
-  <script src="./script.js" defer></script>
+  <script src="./script.js?v=2" defer></script>
 </body>
 </html>

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <span class="app-nav-label">Search</span>
     </button>
   `;
-  root.appendChild(footerNav);
+  document.body.appendChild(footerNav);
 
   // 4. HIGHLIGHT ACTIVE NAV ITEM
   const currentPath = window.location.pathname;
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <div class="search-input-wrapper">
       <span class="search-input-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Type a book name (e.g. Genesis 1, Exodus 1)..." autocomplete="off">
+      <input type="text" id="search-input" class="search-input" placeholder="Type a book name (e.g. Genesis 1, Exodus 1)..." autocomplete="off">
     </div>
     <div class="search-results" id="search-results"></div>
   `;
@@ -234,7 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
       item.href = book.link;
       item.className = "search-result-item";
       item.innerHTML = `
-        <div class="search-result-emoji">${book.emoji}</div>
         <div class="search-result-info">
           <div class="search-result-name">${displayName}</div>
           <div class="search-result-testament">${book.testament}</div>
