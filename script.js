@@ -283,4 +283,60 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach(card => {
     revealObserver.observe(card);
   });
+
+  // 7. VIDEO MODAL IMPLEMENTATION
+  const videoModal = document.createElement("div");
+  videoModal.className = "video-modal";
+  videoModal.id = "video-modal";
+  videoModal.innerHTML = `
+    <div class="video-modal-backdrop" id="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="video-modal-close">✕</button>
+      <div class="video-modal-player" id="video-modal-player"></div>
+    </div>
+  `;
+  document.body.appendChild(videoModal);
+
+  const videoModalBackdrop = document.getElementById("video-modal-backdrop");
+  const videoModalClose = document.getElementById("video-modal-close");
+  const videoModalPlayer = document.getElementById("video-modal-player");
+
+  function openVideoModal(youtubeId) {
+    videoModalPlayer.innerHTML = `<iframe 
+      src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>`;
+    videoModal.classList.add("active");
+    root.style.overflowY = "hidden";
+  }
+
+  function closeVideoModal() {
+    videoModal.classList.remove("active");
+    root.style.overflowY = "auto";
+    setTimeout(() => {
+      videoModalPlayer.innerHTML = ""; // Stop playing video
+    }, 300); // Wait for transition
+  }
+
+  videoModalClose.addEventListener("click", closeVideoModal);
+  videoModalBackdrop.addEventListener("click", closeVideoModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && videoModal.classList.contains("active")) {
+      closeVideoModal();
+    }
+  });
+
+  // Attach click events to all video cards on the page
+  const pageVideoCards = document.querySelectorAll(".video-card");
+  pageVideoCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const youtubeId = card.getAttribute("data-youtube-id");
+      if (youtubeId) {
+        openVideoModal(youtubeId);
+      }
+    });
+  });
 });
