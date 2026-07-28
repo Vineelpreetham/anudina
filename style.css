@@ -136,7 +136,7 @@ html,
   display: none;
 }
 
-.hero-video-bg {
+.hero-img-bg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1775,4 +1775,44 @@ body::after {
   margin: 0 auto;
   background: linear-gradient(90deg, transparent, var(--color-golden-apricot, #d8973c), transparent);
   border-radius: 2px;
+}
+
+/* ─── VIDEO SECTION ─── */
+.video-section {
+  padding: 40px 20px 80px;
+  background: var(--color-bg-base);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--color-border-warm);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
