@@ -283,4 +283,60 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach(card => {
     revealObserver.observe(card);
   });
+
+  // 7. DYNAMIC YOUTUBE VIDEO LOADER
+  const dynamicVideoGrid = document.getElementById("dynamic-video-grid");
+  if (dynamicVideoGrid) {
+    const playlistId = dynamicVideoGrid.getAttribute("data-playlist-id");
+    
+    if (playlistId) {
+      dynamicVideoGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--color-text-muted);">Loading videos...</div>';
+      
+      fetch(`/api/youtube?playlistId=${playlistId}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Failed to load videos from server");
+          return res.json();
+        })
+        .then(data => {
+          if (data.videos && data.videos.length > 0) {
+            dynamicVideoGrid.innerHTML = ''; // clear loading state
+            
+            data.videos.forEach(video => {
+              const card = document.createElement("a");
+              card.className = "video-card reveal-item";
+              card.href = `https://www.youtube.com/watch?v=${video.id}`;
+              card.target = "_blank";
+              card.rel = "noopener noreferrer";
+              
+              card.innerHTML = `
+                <div class="video-card-thumb" style="background-image: url('${video.thumbnailUrl}'); background-size: cover; background-position: center; height: 160px; border-radius: 8px; margin-bottom: 12px; position: relative;">
+                  <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                     <span style="font-size: 32px; color: white; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">▶</span>
+                  </div>
+                </div>
+                <div class="video-card-sessions">Video</div>
+                <div class="video-card-title">${video.title}</div>
+                <div class="video-card-sub">${video.channelTitle}</div>
+                <div class="video-card-duration-pill">
+                  <span class="video-card-duration-icon">▶</span>
+                  <span>Watch</span>
+                </div>
+              `;
+              
+              dynamicVideoGrid.appendChild(card);
+              // Trigger reveal animation for newly added cards
+              setTimeout(() => {
+                revealObserver.observe(card);
+              }, 50);
+            });
+          } else {
+            dynamicVideoGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--color-text-muted);">No videos found.</div>';
+          }
+        })
+        .catch(err => {
+          console.error("Error fetching videos:", err);
+          dynamicVideoGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #ff6b6b;">Unable to load videos right now. Please try again later.</div>';
+        });
+    }
+  }
 });
