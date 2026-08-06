@@ -265,9 +265,11 @@ html,
   text-decoration: none;
   color: var(--color-text-body);
 }
-.hcard:hover {
-  box-shadow: 0 8px 25px rgba(216, 151, 60, 0.12);
-  border-color: var(--color-golden-apricot);
+@media (hover: hover) {
+  .hcard:hover {
+    box-shadow: 0 8px 25px rgba(216, 151, 60, 0.12);
+    border-color: var(--color-golden-apricot);
+  }
 }
 .hcard:active { transform: scale(0.97); }
 
@@ -378,9 +380,11 @@ html,
   color: var(--color-text-body);
   display: block;
 }
-.pcard:hover {
-  box-shadow: 0 8px 20px rgba(216, 151, 60, 0.12);
-  border-color: var(--color-golden-apricot);
+@media (hover: hover) {
+  .pcard:hover {
+    box-shadow: 0 8px 20px rgba(216, 151, 60, 0.12);
+    border-color: var(--color-golden-apricot);
+  }
 }
 .pcard:active { transform: scale(0.96); }
 
@@ -402,8 +406,10 @@ html,
   z-index: 1;
   transition: transform 0.4s ease-out;
 }
-.pcard:hover .pcard-img::before {
-  transform: scale(1.1);
+@media (hover: hover) {
+  .pcard:hover .pcard-img::before {
+    transform: scale(1.1);
+  }
 }
 /* Alternating heights for Pinterest unevenness */
 .pcard-img.short { height: 110px; }
@@ -876,10 +882,12 @@ html,
   text-decoration: none;
   color: inherit;
 }
-.video-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: var(--color-accent-gold);
+@media (hover: hover) {
+  .video-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.15);
+    border-color: var(--color-accent-gold);
+  }
 }
 .video-card:active { transform: translateY(-2px) scale(0.99); }
 
@@ -1424,10 +1432,12 @@ html,
   flex-direction: column;
 }
 
-.book-item-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: var(--color-accent-gold);
+@media (hover: hover) {
+  .book-item-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--color-accent-gold);
+  }
 }
 
 .book-item-img {
@@ -1750,9 +1760,11 @@ body::after {
   position: relative;
 }
 
-.covenant-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+@media (hover: hover) {
+  .covenant-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
 }
 .covenant-card:active {
   transform: translateY(-2px) scale(1.01);
@@ -1850,9 +1862,11 @@ body::after {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.covenant-card:hover .covenant-card-arrow {
-  transform: translateX(4px);
-  background: #c5a133;
+@media (hover: hover) {
+  .covenant-card:hover .covenant-card-arrow {
+    transform: translateX(4px);
+    background: #c5a133;
+  }
 }
 
 /* ─── PREMIUM COVENANT HEADING ─── */
