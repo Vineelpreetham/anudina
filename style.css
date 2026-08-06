@@ -76,9 +76,9 @@ a, button, .hcard, .covenant-card, .pcard, .bcard, .nav-btn, .book-item-card, .v
 
 /* Snappy, instant feedback when touching any interactive card on mobile */
 .hcard:active, .pcard:active, .covenant-card:active, .book-item-card:active, .glass-card:active, .video-card:active, .app-nav-item:active, .testament-back-btn:active {
-  transform: scale(0.96) !important;
-  transition-duration: 0.1s !important;
-  filter: brightness(0.85);
+  transform: scale(0.98) !important;
+  transition: all 0.2s ease-out !important;
+  filter: brightness(0.9);
 }
 
 /* ─── DESKTOP AMBIENT DECORATIONS ─── */
