@@ -68,10 +68,17 @@ body {
 }
 
 /* ─── NATIVE APP TOUCH BEHAVIOR ─── */
-a, button, .hcard, .covenant-card, .pcard, .bcard, .nav-btn {
+a, button, .hcard, .covenant-card, .pcard, .bcard, .nav-btn, .book-item-card, .video-card {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
+}
+
+/* Snappy, instant feedback when touching any interactive card on mobile */
+.hcard:active, .pcard:active, .covenant-card:active, .book-item-card:active, .glass-card:active, .video-card:active, .app-nav-item:active, .testament-back-btn:active {
+  transform: scale(0.96) !important;
+  transition-duration: 0.1s !important;
+  filter: brightness(0.85);
 }
 
 /* ─── DESKTOP AMBIENT DECORATIONS ─── */

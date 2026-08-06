@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   if (!root) return;
 
+  // Enable active states on iOS Safari
+  document.body.setAttribute('ontouchstart', '');
+
   const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/anudhina/');
 
   // 0. CREATE GLOBAL SPLASH SCREEN (Skip on home page)
