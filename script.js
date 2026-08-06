@@ -2,7 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   if (!root) return;
 
-  // 1. DETERMINE PATH PREFIX (relative to root directory)
+  // 0. CREATE GLOBAL SPLASH SCREEN
+  if (!document.getElementById('global-splash')) {
+    const splash = document.createElement('div');
+    splash.id = 'global-splash';
+    splash.className = 'global-splash';
+    splash.innerHTML = `<img src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786009411/Saved_Frame_from_Wheat_stalks_202608061454_mzlcsd.jpg" alt="Anudhina Jeevaharam">`;
+    document.body.appendChild(splash);
+    setTimeout(() => {
+      splash.classList.add('hidden');
+      setTimeout(() => splash.remove(), 500);
+    }, 1200);
+  }
+
+  // 1. DETERMINE PATH PREFIX
   const pathPrefix = "./";
 
   // 2. CREATE SCROLL INDICATOR
@@ -14,6 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="scroll-line"></div>
     `;
     root.appendChild(scrollDiv);
+  }
+
+  // 2.5 CREATE CHANNEL CTA ON BOOK PAGES
+  const bookInfo = document.querySelector('.book-info');
+  if (bookInfo && !document.querySelector('.channel-cta')) {
+    const cta = document.createElement('div');
+    cta.className = 'channel-cta';
+    cta.innerHTML = `
+      <div class="channel-cta-info">
+        <h4 class="channel-cta-title">Subscribe to the Channel</h4>
+        <p class="channel-cta-desc">Raj Prakash Paul</p>
+      </div>
+      <a class="channel-cta-btn" href="https://www.youtube.com/@RajPrakashPaul" target="_blank" rel="noopener noreferrer">Subscribe</a>
+    `;
+    bookInfo.insertAdjacentElement('afterend', cta);
   }
 
   // 3. CREATE STICKY NAVIGATION FOOTER
