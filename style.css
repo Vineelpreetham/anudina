@@ -120,14 +120,14 @@ html,
 
 .hero {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 40px 0;
   background: transparent;
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 0;
   overflow: hidden;
 }
@@ -164,6 +164,9 @@ html,
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 16px;
 }
 
 .hero-main-title {
@@ -1936,7 +1939,7 @@ body::after {
 .global-splash {
   position: fixed;
   inset: 0;
-  background-color: #0b1110; /* Match body bg */
+  background-color: #0b3b24;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -1947,13 +1950,18 @@ body::after {
   opacity: 0;
   pointer-events: none;
 }
-.global-splash img {
-  width: 150px;
-  height: auto;
-  animation: pulse 2s infinite ease-in-out;
+.splash-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--color-golden-apricot);
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  animation: twistPulse 2.5s infinite ease-in-out;
 }
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
+@keyframes twistPulse {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.1) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
 }

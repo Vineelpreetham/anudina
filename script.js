@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const splash = document.createElement('div');
     splash.id = 'global-splash';
     splash.className = 'global-splash';
-    splash.innerHTML = `<img src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786009411/Saved_Frame_from_Wheat_stalks_202608061454_mzlcsd.jpg" alt="Anudhina Jeevaharam">`;
+    splash.innerHTML = `<h1 class="splash-logo">అనుదిన జీవాహారం</h1>`;
     document.body.appendChild(splash);
     setTimeout(() => {
       splash.classList.add('hidden');
