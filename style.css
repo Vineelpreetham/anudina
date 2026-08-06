@@ -156,18 +156,7 @@ html,
   pointer-events: none;
 }
 
-.hero-emerald-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: #0b3b24;
-  z-index: 2;
-  pointer-events: none;
-  animation: emeraldFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s forwards;
-}
-@keyframes emeraldFade {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
+
 
 .hero-content {
   position: relative;
@@ -190,9 +179,9 @@ html,
   z-index: 11;
   position: relative;
   animation: 
-    splashLogoCenter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
-    splashLogoSlideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s forwards,
-    floatLogo 6s infinite ease-in-out 2.5s;
+    splashLogoCenter 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
+    splashLogoSlideUp 2s cubic-bezier(0.2, 0.8, 0.2, 1) 2.5s forwards,
+    floatLogo 6s infinite ease-in-out 4.5s;
 }
 @keyframes splashLogoCenter {
   0% { transform: translateY(35vh) scale(0.9); opacity: 0; }
@@ -220,7 +209,7 @@ html,
   opacity: 0;
   position: relative;
   z-index: 10;
-  animation: splashFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 2s forwards;
+  animation: splashFadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 4s forwards;
 }
 @keyframes splashFadeIn {
   0% { transform: translateY(20px); opacity: 0; }
@@ -231,7 +220,7 @@ html,
   opacity: 0;
   position: relative;
   z-index: 10;
-  animation: splashFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 2.2s forwards;
+  animation: splashFadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 4.2s forwards;
 }
 
 .hero-cards {
