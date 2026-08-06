@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   if (!root) return;
 
-  // 0. CREATE GLOBAL SPLASH SCREEN
-  if (!document.getElementById('global-splash')) {
+  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/anudhina/');
+
+  // 0. CREATE GLOBAL SPLASH SCREEN (Skip on home page)
+  if (!isHomePage && !document.getElementById('global-splash')) {
     const splash = document.createElement('div');
     splash.id = 'global-splash';
     splash.className = 'global-splash';
